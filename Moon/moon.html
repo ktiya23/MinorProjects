@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Document</title>
+    <style>
+        .moon {
+            height: 300px;
+            width: 300px;
+            background-color: rgb(71, 69, 69);
+            border-radius: 50%;
+            position: relative;
+            margin: 90px;
+        }
+
+        .moon::before {
+            content: "";
+            background-color: #9fcfe0;
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            z-index: -1;
+            animation: 4.5s light linear infinite alternate;
+        }
+
+        @keyframes light {
+            0% {
+                transform: translateX(40px) scale(0.9);
+                box-shadow: none;
+            }
+
+            50% {
+                transform: translate(0px, 0px) scale(1.02);
+                box-shadow: 0 0 20px rgb(78, 181, 183), 0 0 80px 20px rgb(83, 204, 204);
+            }
+
+            100% {
+                transform: translateX(-40px) scale(0.9);
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="moon"></div>
+</body>
+
+</html>
