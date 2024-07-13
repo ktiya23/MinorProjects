@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:linear-gradient(45deg,black,grey);
+    overflow: hidden;
+}
+
+h1{
+    position: absolute;
+    font-size: 100px;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 20px 10px #fdfafa40;
+    background: linear-gradient(45deg,indigo,blue,rgb(55, 186, 230),green ,yellow,orange,red );
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+img{
+    position: absolute;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(0);
+    }
+    5%,95%{
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(2);
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <h1>HAPPY HOLI</h1>
+    <script>
+        var container = document.getElementById("container");
+        var images = ["./clr01.png", "./clr02.png", "./clr03.png", "./clr04.png", "./clr05.png", "./clr06.png", "./clr07.png", "./clr08.png", "./clr09.png", "./clr10.png", "./clr11.png", "./clr12.png", "./clr13.png", "./clr14.png", "./clr15.png"]
+        function Clear() {
+            setTimeout(function () {
+                document.getElementsByClassName('x')[0].remove();
+            }, 4000);
+        }
+
+        window.addEventListener('click', function (event) {
+            Clear();
+            let a = this.document.createElement('img');
+            a.src = images[Math.floor(Math.random() * images.length)];
+            a.className = 'x';
+            a.style.left = event.clientX + 'px';
+            a.style.top = event.clientY + 'px';
+            container.appendChild(a);
+        });
+
+    </script>
+</body>
+
+</html>
