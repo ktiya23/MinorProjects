@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVD CHARACTER PROFILE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        #root {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .search {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .profile {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile h4 {
+            margin: 0 0 10px 0;
+            color: #555;
+            font-size: 30px;
+        }
+
+        .profile h5 {
+            margin: 0;
+            color: #777;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Your  code will go here
+    const UserList = [
+        { id: 1, name: 'Katherine Pierce', email: 'katherine01@gmail.com', location: 'Mystic Falls' },
+        { id: 2, name: 'Bonnie Benett', email: 'bonnie@gmail.com', location: 'California' },
+        { id: 3, name: 'Charlie Brown', email: 'charlie@gmail.com', location: 'Virginia' },
+        { id: 4, name: 'Klaus Mikalson', email: 'klaus21@gmail.com', location: 'Mystic Falls' },
+        { id: 5, name: 'Caroline Forbes', email: 'caroline23@gmail.com', location: 'Paris' },
+        { id: 6, name: 'Stefan Salavatore', email: 'stefan12@gmail.com', location: 'Virginia' },
+        { id: 7, name: 'Elena Gilbert', email: 'elena@gmail.com', location: 'Mystic Falls' },
+        { id: 8, name: 'Damon Salavatore', email: 'damon123@gmail.com', location: 'Virginia' },
+    ]
+
+    const UserProfile =()=>{
+        const[searchUser , setSearchUser]= React.useState("")
+        const handleUser=(e)=>{
+            const user = e.target.value;
+            setSearchUser(user);
+        }
+
+        const filteredUser = UserList.filter((user)=> user.name.toLowerCase().includes(searchUser.toLowerCase()))
+
+        return <div>
+            <h1>User Profile List</h1>
+            <input type="text" placeholder="Type user name" onChange={handleUser} className="search"/>
+            {
+                filteredUser.map((elem)=>{
+                    return <div key={elem.id} className="profile">
+                        <h4>Name: {elem.name}</h4>
+                        <h5>Email: {elem.email}</h5>
+                        <h5>Address: {elem.location}</h5>
+                        </div>
+                })
+            }
+            </div>
+    }
+
+    function App() {
+        return <UserProfile />
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+</script>
+
+</html>
