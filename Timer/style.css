@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    height: 150px;
+    width: 200px;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(33, 33, 33, 0.852);
+}
+
+#timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#start {
+    background-color: #046707;
+    color: white;
+    padding: 5px;
+}
+
+#stop {
+    background-color: #cc1306;
+    color: white;
+    padding: 5px;
+}
+
+#reset {
+    background-color: #047195;
+    color: white;
+    padding: 5px;
+}
