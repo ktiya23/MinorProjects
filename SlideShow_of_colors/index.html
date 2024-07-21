@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideshow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <div class="slide">
+            <button id="previous" onclick="previous_func()">
+                </button>
+                    <div id="images"></div>
+                    <button id="next" onclick="next_func()">></button>
+        </div>
+        <div class="buttons">
+            <button onclick="start_func()" id="start">START</button>
+            <button onclick="stop_func()" id="stop">STOP</button>
+            <button onclick="resume_func()" id="resume">RESUME</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
